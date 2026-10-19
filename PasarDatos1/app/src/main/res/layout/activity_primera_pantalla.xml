@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrimeraPantalla"
+
+    android:background="#add8e6"
+    >
+    <TextView
+        android:id="@+id/titulo"
+        android:text="Atributos"
+        android:textSize="25dp"
+        android:textColor="#FE000280"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/nombreEtiqueta"
+        android:text="Nombre: "
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        android:layout_marginTop="40dp"
+        />
+    <EditText
+        android:id="@+id/nombreCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11dp"
+        android:hint="Escribe un nombre"
+        android:textColorHint="#3b4139"
+        app:layout_constraintStart_toEndOf="@+id/titulo"
+        app:layout_constraintBottom_toBottomOf="@id/nombreEtiqueta"
+        />
+    <TextView
+        android:id="@+id/apellidoEtiqueta"
+        android:text="Apellido: "
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEtiqueta"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        android:layout_marginTop="40dp"
+        />
+    <EditText
+        android:id="@+id/apellidoCampo"
+        android:hint="Escribe un apellido"
+        android:textColorHint="#3b4139"
+        android:textSize="11dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/titulo"
+        app:layout_constraintBottom_toBottomOf="@id/apellidoEtiqueta"
+        />
+    <TextView
+        android:id="@+id/edadEtiqueta"
+        android:text="Edad: "
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/apellidoEtiqueta"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        android:layout_marginTop="40dp"
+        />
+    <EditText
+        android:id="@+id/edadCampo"
+        android:hint="Escribe una edad"
+        android:textColorHint="#3b4139"
+        android:textSize="11dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/titulo"
+        app:layout_constraintBottom_toBottomOf="@id/edadEtiqueta"
+        />
+    <Button
+        android:id="@+id/boton"
+        android:text="Enviar"
+        android:textColor="#000080"
+        android:background="#98fb98"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/titulo"
+        app:layout_constraintEnd_toEndOf="@id/titulo"
+        app:layout_constraintTop_toBottomOf="@id/edadEtiqueta"
+        android:layout_marginTop="20dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

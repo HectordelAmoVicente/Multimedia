@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SegundaPantalla"
+
+    android:background="#add8e6"
+    >
+    <TextView
+        android:id="@+id/titulo"
+        android:text="Bienvenido/a"
+        android:textSize="25dp"
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/datosEtiqueta"
+        android:text="Sus datos son:"
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/nombreEtiqueta"
+        android:text="Nombre: "
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#000080"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        app:layout_constraintTop_toBottomOf="@id/datosEtiqueta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/apellidosEtiqueta"
+        android:text="Apellidos: "
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        app:layout_constraintTop_toBottomOf="@id/nombreEtiqueta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/edadEtiqueta"
+        android:text="Edad: "
+        android:textColor="#000080"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toStartOf="@id/titulo"
+        app:layout_constraintTop_toBottomOf="@id/apellidosEtiqueta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
