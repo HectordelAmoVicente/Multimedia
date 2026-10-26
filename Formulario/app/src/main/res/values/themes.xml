@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Formulario.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/giphy</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.Formulario</item>
+    </style>
 </resources>

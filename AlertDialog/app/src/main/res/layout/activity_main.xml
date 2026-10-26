@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/alertDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alert Dialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/alertDialogTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alert Dialog Selection"
+        app:layout_constraintStart_toStartOf="@id/alertDialogButton"
+        app:layout_constraintTop_toBottomOf="@id/alertDialogButton" />
+
+    <Button
+        android:id="@+id/datePickerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Picker"
+        app:layout_constraintStart_toStartOf="@id/alertDialogButton"
+        app:layout_constraintTop_toBottomOf="@id/alertDialogTextView" /> <!-- FIXED: Put below previous text view -->
+
+    <TextView
+        android:id="@+id/datePickerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Picker Selection"
+        app:layout_constraintStart_toStartOf="@id/datePickerButton"
+        app:layout_constraintTop_toBottomOf="@id/datePickerButton" />
+
+    <Button
+        android:id="@+id/timePickerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Picker Dialog"
+        app:layout_constraintStart_toStartOf="@id/datePickerButton"
+        app:layout_constraintTop_toBottomOf="@id/datePickerTextView" /> <!-- FIXED: Put below previous text view -->
+
+    <TextView
+        android:id="@+id/timePickerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Picker Selection"
+        app:layout_constraintStart_toStartOf="@id/timePickerButton"
+        app:layout_constraintTop_toBottomOf="@id/timePickerButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

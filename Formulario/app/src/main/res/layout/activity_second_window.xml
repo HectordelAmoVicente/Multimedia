@@ -6,48 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondWindow">
-    <TextView
-        android:id="@+id/textViewName2"
-        android:text="Nombre: "
-        android:layout_width="match_parent"
+    <ListView
+        android:id="@+id/listView"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="50dp"
-        />
-    <TextView
-        android:id="@+id/textViewLocality2"
-        android:text="Localidad: "
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewName2"
-        app:layout_constraintEnd_toEndOf="@id/textViewName2"
-        />
-    <TextView
-    android:id="@+id/textViewAddress2"
-    android:text="Domicilio: "
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/textViewLocality2"
-    app:layout_constraintEnd_toEndOf="@id/textViewName2"
-    />
-    <TextView
-        android:id="@+id/textViewCourse2"
-        android:text="Curso: "
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewAddress2"
-        app:layout_constraintEnd_toEndOf="@id/textViewName2"
-        />
-    <TextView
-        android:id="@+id/textViewExtraServices2"
-        android:text="Servicios: "
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewCourse2"
-        app:layout_constraintEnd_toEndOf="@id/textViewName2"
-        />
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 

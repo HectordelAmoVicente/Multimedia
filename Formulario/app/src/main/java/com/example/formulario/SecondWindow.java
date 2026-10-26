@@ -2,6 +2,9 @@ package com.example.formulario;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,8 +13,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SecondWindow extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
+public class SecondWindow extends AppCompatActivity {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_options,menu);
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,19 +35,32 @@ public class SecondWindow extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        TextView textViewName2=findViewById(R.id.textViewName2);
-        TextView textViewLocality2=findViewById(R.id.textViewLocality2);
-        TextView textViewAddress2=findViewById(R.id.textViewAddress2);
-        TextView textViewCourse2=findViewById(R.id.textViewCourse2);
-        TextView textViewExtraServices2=findViewById(R.id.textViewExtraServices2);
+        ListView listView=findViewById(R.id.listView);
         Intent intent=getIntent();
         Bundle bundle=intent.getBundleExtra("bundle");
-        textViewName2.setText(textViewName2.getText()+" "+bundle.getString("name"));
-        textViewLocality2.setText(textViewLocality2.getText()+" "+bundle.getString("locality"));
-        textViewAddress2.setText(textViewAddress2.getText()+" "+bundle.getString("address"));
-        textViewCourse2.setText(textViewCourse2.getText()+" "+bundle.getString("course"));
-        textViewExtraServices2.setText(textViewExtraServices2.getText()+" "+bundle.getStringArrayList("extraServices"));
-
-
+        LinkedHashMap<String,String> dataMap=new LinkedHashMap<String,String>();
+        ArrayList<String> extraServicesArrayList=bundle.getStringArrayList("extraServices");
+        dataMap.put("Apodo",bundle.getString("nickname"));
+        dataMap.put("Nombre",bundle.getString("name"));
+        dataMap.put("Localidad",bundle.getString("locality"));
+        dataMap.put("Dirección",bundle.getString("address"));
+        dataMap.put("Curso",bundle.getString("course"));
+        for(int i=0;i<extraServicesArrayList.size();i++){
+            String service=extraServicesArrayList.get(i);
+            if(service.equals("Comedor")){
+                dataMap.put("Servicio extra "+(i+1),service);
+            }else if(service.equals("Taquilla")){
+                dataMap.put("Servicio extra "+(i+1),service);
+            }else if(service.equals("Parking")){
+                dataMap.put("Servicio extra "+(i+1),service);
+            }
+        }
+        ArrayList<String> data=new ArrayList<String>();
+        for(String key:dataMap.keySet()){
+            data.add(key);
+            data.add(dataMap.get(key));
+        }
+        DataAdapter<Data> adapter=new DataAdapter<Data>(this,android.R.layout.simple_list_item_1,data);
+        listView.setAdapter(adapter);
     }
 }

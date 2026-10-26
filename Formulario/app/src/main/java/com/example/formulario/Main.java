@@ -1,5 +1,7 @@
 package com.example.formulario;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +18,11 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.splashscreen.SplashScreen;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -31,6 +33,7 @@ public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -58,7 +61,7 @@ public class Main extends AppCompatActivity {
         ToggleButton toggleButtonTextSize=findViewById(R.id.toggleButtonTextSize);
         ImageButton imageButtonClear=findViewById(R.id.imageButtonClear);
         ArrayList<String> extraServices=new ArrayList<String>();
-        String[] nicknames={"Hank","Hulk","Harry","Henry","Hugh","Humphrey","Humpty Dumpty"};
+        String[] nicknames={"Hector","Hank","Hulk","Harry","Henry","Hugh","Hubert","Humphrey","Humpty Dumpty"};
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,nicknames);
         autoCompleteTextViewNickname.setAdapter(adapter);
         radioGroupCourses.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -73,11 +76,14 @@ public class Main extends AppCompatActivity {
                 }
             }
         });
-        buttonFillOut.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Continuar a la siguiente pantalla").setTitle("Confirmar datos").setIcon(R.mipmap.ic_launcher);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent=new Intent(Main.this,SecondWindow.class);
                 Bundle bundle=new Bundle();
+                bundle.putString("nickname",autoCompleteTextViewNickname.getText().toString());
                 bundle.putString("name",editTextName.getText().toString());
                 bundle.putString("locality",editTextLocality.getText().toString());
                 bundle.putString("address",editTextAddress.getText().toString());
@@ -87,6 +93,17 @@ public class Main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        builder.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog confirmationDialog=builder.create();
+        buttonFillOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {confirmationDialog.show();}
+        });
+
         checkBoxLocker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
